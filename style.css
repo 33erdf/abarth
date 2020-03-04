@@ -1,0 +1,28 @@
+/* line 3, /Users/soon/Desktop/abarth/style.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* line 9, /Users/soon/Desktop/abarth/style.scss */
+body {
+  background-color: #fff; }
+
+/* line 13, /Users/soon/Desktop/abarth/style.scss */
+.svgWrap {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 296px;
+  overflow: hidden; }
+  /* line 23, /Users/soon/Desktop/abarth/style.scss */
+  .svgWrap > svg {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+/*# sourceMappingURL=style.css.map */

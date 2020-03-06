@@ -1,28 +1,44 @@
-/* line 3, /Users/soon/Desktop/abarth/style.scss */
+/* line 3, /Users/soon/Desktop/abarth2/style.scss */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
-/* line 9, /Users/soon/Desktop/abarth/style.scss */
+/* line 9, /Users/soon/Desktop/abarth2/style.scss */
 body {
   background-color: #fff; }
 
-/* line 13, /Users/soon/Desktop/abarth/style.scss */
+/* line 13, /Users/soon/Desktop/abarth2/style.scss */
 .svgWrap {
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   min-height: 296px;
   overflow: hidden; }
-  /* line 23, /Users/soon/Desktop/abarth/style.scss */
-  .svgWrap > svg {
+  /* line 22, /Users/soon/Desktop/abarth2/style.scss */
+  .svgWrap > svg,
+  .svgWrap > object {
     position: absolute;
-    width: 100%;
+    width: 220%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -51%); }
+    @media screen and (min-width: 640px) {
+      /* line 22, /Users/soon/Desktop/abarth2/style.scss */
+      .svgWrap > svg,
+      .svgWrap > object {
+        width: 140%; } }
+    @media screen and (min-width: 1000px) {
+      /* line 22, /Users/soon/Desktop/abarth2/style.scss */
+      .svgWrap > svg,
+      .svgWrap > object {
+        width: 110%; } }
+    @media screen and (min-width: 1280px) {
+      /* line 22, /Users/soon/Desktop/abarth2/style.scss */
+      .svgWrap > svg,
+      .svgWrap > object {
+        width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

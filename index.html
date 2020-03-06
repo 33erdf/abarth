@@ -4,26 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>ABARTH</title>
 </head>
 
-<body>
-    <div class="svgWrap">
-        <object id="animated-svg" type="image/svg+xml" data="0220-abarth.svg"></object>
+<body class="loading">
+    <div id="svgWrap">
 
+        <object id="animated-svg" type="image/svg+xml" data="/img/abarth.svg"></object>
+
+        <div class="glitch">
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+        </div>
     </div>
 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <div id="topPage">
+        <picture>
+            <source srcset="/img/top-img-pc.jpg" media="(min-width: 768px)">
+            <img src="/img/top-img-sp.png" alt="abarth top page" />
+        </picture>
+    </div>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
     <script>
-        let svgObj = document.getElementById("animated-svg"),
-            svgDoc = svgObj.contentDocument,
-            svgAbarth = svgDoc.getElementById("e7f2fczzg46l1");
-        console.log(svgObj);
-        console.log(svgDoc);
-        svgAbarth.dispatchEvent(new Event('click'));
+        window.onload = function() {
+            let svgObj = document.getElementById("animated-svg"),
+                svgDoc = svgObj.contentDocument,
+                svgAbarth = svgDoc.getElementById("e7f2fczzg46l1");
+            //                console.log(svgObj);
+            //                console.log(svgDoc);}
+
+            if (!localStorage.noFirstVisit) {
+                console.log('first time');
+                document.getElementById('svgWrap').classList.add("visible");
+                startAnim();
+                localStorage.noFirstVisit = "1";
+            } else {
+                document.getElementById('svgWrap').parentNode.removeChild(document.getElementById('svgWrap'));
+                document.getElementById('topPage').classList.add("visible");
+            }
+
+
+            function startAnim() {
+                imagesLoaded('.glitch__img', {
+                    background: true
+                }, () => {
+                    svgAbarth.dispatchEvent(new Event('click'));
+
+                    setTimeout(function() {
+                        svgObj.classList.add("hidden");
+                        console.log("ok");
+                        document.body.classList.remove('loading');
+                        document.body.classList.add('imgloaded');
+                    }, 3500);
+
+                    setTimeout(function() {
+                        document.getElementById('topPage').classList.add("visible");
+                        document.getElementById('svgWrap').classList.add("fadeOut");
+                    }, 5000);
+                });
+            }
+
+
+        };
     </script>
 </body></html>
